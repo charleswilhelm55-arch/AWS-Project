@@ -8,7 +8,7 @@ deploy:
 runs-on: ubuntu-latest
 
 steps:
-  - name: Checkout LAB branch
+  - name: Checkout lab branch
     uses: actions/checkout@v4
     with:
       ref: lab
