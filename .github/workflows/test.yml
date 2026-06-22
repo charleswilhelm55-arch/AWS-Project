@@ -1,34 +1,35 @@
 name: Run Tests
 
 on:
-push:
-branches:
-- lab
+  push:
+    branches:
+      - lab
 
 jobs:
-test:
-runs-on: ubuntu-latest
-steps:
-  - name: Checkout LAB branch
-    uses: actions/checkout@v4
-    with:
-      ref: lab
+  test:
+    runs-on: ubuntu-latest
 
-  - name: Set up Python 3.9
-    uses: actions/setup-python@v5
-    with:
-      python-version: "3.9"
+    steps:
+      - name: Checkout LAB branch
+        uses: actions/checkout@v4
+        with:
+          ref: lab
 
-  - name: Install dependencies
-    run: |
-      python -m pip install --upgrade pip
-      pip install -r app/requirements_flask.txt
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
 
-  - name: Run tests
-    run: pytest
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r app/requirements_flask.txt
 
-  - name: Dispatch Lambda workflow
-    uses: benc-uk/workflow-dispatch@v1
-    with:
-      workflow: lambda.yml
-      token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run tests
+        run: pytest
+
+      - name: Dispatch Lambda workflow
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: lambda.yml
+          token: ${{ secrets.GITHUB_TOKEN }}
