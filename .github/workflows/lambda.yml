@@ -7,7 +7,6 @@ jobs:
 deploy:
 runs-on: ubuntu-latest
 
-```
 steps:
   - name: Checkout LAB branch
     uses: actions/checkout@v4
@@ -27,4 +26,3 @@ steps:
 
   - name: Deploy Lambda
     run: ./resources/deploy_lambda.sh
-```
