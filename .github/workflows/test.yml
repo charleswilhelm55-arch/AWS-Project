@@ -8,8 +8,6 @@ branches:
 jobs:
 test:
 runs-on: ubuntu-latest
-
-```
 steps:
   - name: Checkout LAB branch
     uses: actions/checkout@v4
@@ -34,4 +32,3 @@ steps:
     with:
       workflow: lambda.yml
       token: ${{ secrets.GITHUB_TOKEN }}
-```
