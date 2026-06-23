@@ -4,7 +4,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  placeholder:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "EC2 workflow not implemented yet"
+      - name: Checkout LAB branch
+        uses: actions/checkout@v4
+        with:
+          ref: lab
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            chmod +x resources/deploy_ec2.sh
+            ./resources/deploy_ec2.sh
