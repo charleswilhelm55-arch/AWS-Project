@@ -22,3 +22,5 @@ jobs:
           script: |
             chmod +x resources/deploy_ec2.sh
             ./resources/deploy_ec2.sh
+
+            #test texts
