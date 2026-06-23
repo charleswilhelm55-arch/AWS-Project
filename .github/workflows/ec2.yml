@@ -20,6 +20,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
+            cd ~/AWS-Project
             chmod +x resources/deploy_ec2.sh
             ./resources/deploy_ec2.sh
 
