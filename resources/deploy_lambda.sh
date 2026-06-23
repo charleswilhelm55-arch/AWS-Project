@@ -43,7 +43,5 @@ aws lambda update-function-code \
     --function-name "$LAMBDA_NAME" \
     --zip-file "fileb://$ZIP_FILE" \
     --region "$REGION"
-exit 1
-
 
 echo "--- Deployment completed for $LAMBDA_NAME ---"
