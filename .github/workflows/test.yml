@@ -37,3 +37,9 @@ jobs:
         with:
           workflow: lambda.yml
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Dispatch EC2 workflow
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: ec2.yml
+          token: ${{ secrets.GITHUB_TOKEN }}
